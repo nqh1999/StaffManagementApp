@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina3_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginVC" customModule="StaffManagementApp" customModuleProvider="target">
+            <connections>
+                <outlet property="emailTf" destination="SRa-tH-ZMa" id="pLd-Qc-Zfe"/>
+                <outlet property="forgotPasswordBt" destination="fnO-HV-kJ0" id="jiu-0J-gMt"/>
+                <outlet property="loginBt" destination="22A-tc-eH9" id="HS7-fu-2kq"/>
+                <outlet property="passwordTf" destination="QIi-ry-Swp" id="dxZ-7K-PMs"/>
+                <outlet property="registerBt" destination="eu5-nu-S1i" id="qcc-Dx-QxS"/>
+                <outlet property="view" destination="qPR-C6-RN0" id="6xT-uW-k8F"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="qPR-C6-RN0">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="LV2-9V-e4W">
+                    <rect key="frame" x="20" y="5" width="280" height="370"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FnR-j2-mdC">
+                            <rect key="frame" x="0.0" y="0.0" width="280" height="64"/>
+                            <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="40"/>
+                            <color key="textColor" name="bgr"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="kUg-qa-SKb">
+                            <rect key="frame" x="0.0" y="164" width="280" height="206"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="4Eg-I9-XEi">
+                                    <rect key="frame" x="0.0" y="0.0" width="280" height="98"/>
+                                    <subviews>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SRa-tH-ZMa" customClass="BaseTextField" customModule="StaffManagementApp" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="280" height="44"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="44" id="xZS-5d-Eu0"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="email"/>
+                                        </textField>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QIi-ry-Swp" customClass="BaseTextField" customModule="StaffManagementApp" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="54" width="280" height="44"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="44" id="Sfj-pZ-Y2K"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="continue" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="password"/>
+                                        </textField>
+                                    </subviews>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="yPp-Uu-ae3">
+                                    <rect key="frame" x="0.0" y="123" width="280" height="83"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="22A-tc-eH9" customClass="BlueButton" customModule="StaffManagementApp" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="280" height="44"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="44" id="xSR-o6-53D"/>
+                                            </constraints>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain" title="Login">
+                                                <fontDescription key="titleFontDescription" type="system" pointSize="16"/>
+                                            </buttonConfiguration>
+                                            <connections>
+                                                <action selector="login:" destination="-1" eventType="touchUpInside" id="ga6-nz-CYm"/>
+                                            </connections>
+                                        </button>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Hsw-su-8KH">
+                                            <rect key="frame" x="0.0" y="54" width="280" height="29"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fnO-HV-kJ0" customClass="UnderLineButton" customModule="StaffManagementApp" customModuleProvider="target">
+                                                    <rect key="frame" x="119.5" y="0.0" width="41" height="29"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" title="button">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="Forgot Password"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="goToForgotPasswordVC:" destination="-1" eventType="touchUpInside" id="pcR-Af-foV"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eu5-nu-S1i" customClass="UnderLineButton" customModule="StaffManagementApp" customModuleProvider="target">
+                                                    <rect key="frame" x="176.66666666666666" y="26" width="35" height="26"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" title="button">
+                                                        <color key="titleColor" systemColor="tintColor"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="Register"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="goToRegisterVC:" destination="-1" eventType="touchUpInside" id="Dwd-9H-d1B"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="eu5-nu-S1i"/>
+                                                </mask>
+                                            </variation>
+                                        </stackView>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="Uc2-K3-VDh"/>
+            <constraints>
+                <constraint firstItem="Uc2-K3-VDh" firstAttribute="trailing" secondItem="LV2-9V-e4W" secondAttribute="trailing" constant="20" id="PZa-KO-pbP"/>
+                <constraint firstItem="LV2-9V-e4W" firstAttribute="centerY" secondItem="Uc2-K3-VDh" secondAttribute="centerY" constant="-50" id="hZU-hU-of8"/>
+                <constraint firstItem="LV2-9V-e4W" firstAttribute="leading" secondItem="Uc2-K3-VDh" secondAttribute="leading" constant="20" id="wjD-NP-m1y"/>
+            </constraints>
+            <point key="canvasLocation" x="-123.18840579710145" y="30.803571428571427"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="bgr">
+            <color red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

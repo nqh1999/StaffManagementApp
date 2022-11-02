@@ -1,0 +1,20 @@
+PODS:
+  - SideMenu (5.0.1)
+  - Swinject (2.8.2)
+
+DEPENDENCIES:
+  - SideMenu
+  - Swinject
+
+SPEC REPOS:
+  trunk:
+    - SideMenu
+    - Swinject
+
+SPEC CHECKSUMS:
+  SideMenu: 87efd943737bb83aedf0358884d09fcf5576636d
+  Swinject: b4a11b31992e8668308dc594ba1cb9b3164a37ab
+
+PODFILE CHECKSUM: 38d274ee64e910c99314646a7c852b659718e406
+
+COCOAPODS: 1.11.2

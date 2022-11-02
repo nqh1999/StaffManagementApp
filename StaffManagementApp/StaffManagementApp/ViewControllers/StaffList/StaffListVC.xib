@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StaffListVC" customModule="StaffManagementApp" customModuleProvider="target">
+            <connections>
+                <outlet property="searchTf" destination="pGr-o5-yUj" id="HKy-d9-lQf"/>
+                <outlet property="tableView" destination="4Ex-QO-s6r" id="ZaW-qx-wvc"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="puC-aw-Xzj">
+                    <rect key="frame" x="0.0" y="64" width="414" height="832"/>
+                    <subviews>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter name of staff" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="pGr-o5-yUj">
+                            <rect key="frame" x="20" y="0.0" width="374" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="I4H-YO-3Aq"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="search" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                            <connections>
+                                <action selector="searchHandler:" destination="-1" eventType="editingChanged" id="Vtx-QZ-VVU"/>
+                            </connections>
+                        </textField>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="4Ex-QO-s6r">
+                            <rect key="frame" x="0.0" y="84" width="414" height="748"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </tableView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="pGr-o5-yUj" firstAttribute="top" secondItem="puC-aw-Xzj" secondAttribute="top" id="4Tb-kd-miL"/>
+                        <constraint firstItem="pGr-o5-yUj" firstAttribute="leading" secondItem="puC-aw-Xzj" secondAttribute="leading" constant="20" id="9JT-HI-eNz"/>
+                        <constraint firstItem="4Ex-QO-s6r" firstAttribute="leading" secondItem="puC-aw-Xzj" secondAttribute="leading" id="Bfk-sc-IRI"/>
+                        <constraint firstAttribute="bottom" secondItem="4Ex-QO-s6r" secondAttribute="bottom" id="Xvx-QN-U9X"/>
+                        <constraint firstAttribute="trailing" secondItem="pGr-o5-yUj" secondAttribute="trailing" constant="20" id="g5N-dr-2HR"/>
+                        <constraint firstAttribute="trailing" secondItem="4Ex-QO-s6r" secondAttribute="trailing" id="jE0-8g-JNz"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <constraints>
+                <constraint firstItem="puC-aw-Xzj" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="96D-6b-RAp"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="puC-aw-Xzj" secondAttribute="trailing" id="XCK-1a-A7S"/>
+                <constraint firstItem="puC-aw-Xzj" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="Yup-UW-fw9"/>
+                <constraint firstItem="puC-aw-Xzj" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottom" id="lz9-vD-qjj"/>
+            </constraints>
+            <point key="canvasLocation" x="131.8840579710145" y="84.375"/>
+        </view>
+    </objects>
+</document>
