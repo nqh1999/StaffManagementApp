@@ -14,19 +14,16 @@ class LoginAssembly: Assembly {
             let interactor = LoginInteractor(presenter: presenter)
             return interactor
         }
-        
         container.register(PresenterToRouterLoginProtocol.self) { (r) in
             let router = LoginRouter()
             return router
         }
-
         container.register(ViewToPresenterLoginProtocol.self) { (r, view: LoginVC) in
             let presenter = LoginPresenter(view: view)
             presenter.setRouter(router: r.resolve(PresenterToRouterLoginProtocol.self)!)
             presenter.setInteractor(interactor: r.resolve(PresenterToInteractorLoginProtocol.self, argument: presenter)!)
             return presenter
         }
-        
         container.register(LoginVC.self) { (r) in
             let vc = LoginVC()
             vc.setPresenter(presenter: r.resolve(ViewToPresenterLoginProtocol.self, argument: vc)!)

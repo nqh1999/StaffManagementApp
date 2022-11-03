@@ -12,8 +12,6 @@ import UIKit
 protocol PresenterToViewProfileDetailProtocol: AnyObject {
     func setPresenter(presenter: ViewToPresenterProfileDetailProtocol)
 }
-
-
 // MARK: - View Input (View -> Presenter)
 protocol ViewToPresenterProfileDetailProtocol: AnyObject {
     func setInteractor(interactor: PresenterToInteractorProfileDetailProtocol)
@@ -21,21 +19,15 @@ protocol ViewToPresenterProfileDetailProtocol: AnyObject {
     func getDetailDataForKey(key: String) -> String
     func getDetailData() -> [String:String]
 }
-
-
 // MARK: - Interactor Input (Presenter -> Interactor)
 protocol PresenterToInteractorProfileDetailProtocol: AnyObject {
     func getDetailData() -> [String:String]
     func getDetailDataForKey(key: String) -> String
 }
-
-
 // MARK: - Interactor Output (Interactor -> Presenter)
 protocol InteractorToPresenterProfileDetailProtocol: AnyObject {
     
 }
-
-
 // MARK: - Router Input (Presenter -> Router)
 protocol PresenterToRouterProfileDetailProtocol: AnyObject {
     

@@ -9,13 +9,10 @@
 import Foundation
 
 class HomeInteractor: PresenterToInteractorHomeProtocol {
-
     // MARK: - Properties
     private weak var presenter: InteractorToPresenterHomeProtocol?
-    
     // MARK: - Init
     init(presenter: InteractorToPresenterHomeProtocol) {
         self.presenter = presenter
     }
-    
 }

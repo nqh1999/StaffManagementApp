@@ -6,15 +6,12 @@
 //
 //
 
-import Foundation
 import UIKit
 
 // MARK: - View Output (Presenter -> View)
 protocol PresenterToViewSideMenuProtocol: AnyObject {
     func setPresenter(presenter: ViewToPresenterSideMenuProtocol)
 }
-
-
 // MARK: - View Input (View -> Presenter)
 protocol ViewToPresenterSideMenuProtocol: AnyObject {
     func setInteractor(interactor: PresenterToInteractorSideMenuProtocol)
@@ -26,8 +23,6 @@ protocol ViewToPresenterSideMenuProtocol: AnyObject {
     func goToProfileVC()
     func goToLoginVC()
 }
-
-
 // MARK: - Interactor Input (Presenter -> Interactor)
 protocol PresenterToInteractorSideMenuProtocol: AnyObject {
     func getCurrentAccount() -> UserModel
@@ -35,14 +30,10 @@ protocol PresenterToInteractorSideMenuProtocol: AnyObject {
     func getNumberOfSideMenuData() -> Int
     func getSideMenuDataForIndex(index: Int) -> SideMenuModel
 }
-
-
 // MARK: - Interactor Output (Interactor -> Presenter)
 protocol InteractorToPresenterSideMenuProtocol: AnyObject {
     
 }
-
-
 // MARK: - Router Input (Presenter -> Router)
 protocol PresenterToRouterSideMenuProtocol: AnyObject {
     func goToHomeVC(view: PresenterToViewSideMenuProtocol)

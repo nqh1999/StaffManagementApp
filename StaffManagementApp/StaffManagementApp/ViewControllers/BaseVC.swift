@@ -19,7 +19,6 @@ class BaseVC: UIViewController {
         navigationItem.leftBarButtonItem?.tintColor = .white
         navigationItem.titleView = titleView
         navigationController?.navigationBar.isTranslucent = false
-        
         if #available(iOS 13.0, *) {
             let navBarAppearance = UINavigationBarAppearance()
             navBarAppearance.configureWithOpaqueBackground()
@@ -30,21 +29,17 @@ class BaseVC: UIViewController {
             navigationController?.navigationBar.tintColor = .black
         }
     }
-    
     func setTitle(title: String) {
         titleView.setTitleView(title: title)
     }
-    
     @objc private func showSideMenu() {
         if let leftMenu = SideMenuManager.default.menuLeftNavigationController {
             present(leftMenu, animated: true,completion: nil)
         }
     }
-    
     @objc private func tapToView() {
         view.endEditing(true)
     }
-    
     func showAlert(text: String) {
         let alert = UIAlertController(title: "", message: text, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default)

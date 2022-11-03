@@ -11,9 +11,8 @@ import Swinject
 
 class StaffListRouter: PresenterToRouterStaffListProtocol {
     func goToProfileDetailVC(view: PresenterToViewStaffListProtocol, data: [String:String]) {
-        print("debug")
         guard let view = view as? StaffListVC else { return }
-        let profileDetailVC = Container.shared.resolve(ProfileDetailVC.self, argument: data)!
-        view.navigationController?.pushViewController(profileDetailVC, animated: true)
+        let vc = Container.shared.resolve(ProfileDetailVC.self, argument: data)!
+        view.navigationController?.pushViewController(vc, animated: true)
     }
 }

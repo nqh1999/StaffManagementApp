@@ -12,8 +12,6 @@ import UIKit
 protocol PresenterToViewStaffListProtocol: AnyObject {
     func setPresenter(presenter: ViewToPresenterStaffListProtocol)
 }
-
-
 // MARK: - View Input (View -> Presenter)
 protocol ViewToPresenterStaffListProtocol: AnyObject {
     func setInteractor(interactor: PresenterToInteractorStaffListProtocol)
@@ -23,7 +21,6 @@ protocol ViewToPresenterStaffListProtocol: AnyObject {
     func goToProfileDetail(index: Int)
     func filterData(text: String)
 }
-
 // MARK: - Interactor Input (Presenter -> Interactor)
 protocol PresenterToInteractorStaffListProtocol: AnyObject {
     func getNumberOfStaffData() -> Int
@@ -31,14 +28,10 @@ protocol PresenterToInteractorStaffListProtocol: AnyObject {
     func getStaffDataForIndex(index: Int) -> StaffModel
     func filterData(text: String)
 }
-
-
 // MARK: - Interactor Output (Interactor -> Presenter)
 protocol InteractorToPresenterStaffListProtocol: AnyObject {
     
 }
-
-
 // MARK: - Router Input (Presenter -> Router)
 protocol PresenterToRouterStaffListProtocol: AnyObject {
     func goToProfileDetailVC(view: PresenterToViewStaffListProtocol, data: [String:String])

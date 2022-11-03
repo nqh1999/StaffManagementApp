@@ -8,9 +8,9 @@
 import UIKit
 
 class OtpTextfield: UITextField {
-    
+    // MARK: - Properties
     var deleteText: (() -> Void)?
-    
+    // MARK: - Init
     override func awakeFromNib() {
         super.awakeFromNib()
         self.layer.cornerRadius = 8
@@ -21,10 +21,8 @@ class OtpTextfield: UITextField {
         self.textAlignment = .center
         self.keyboardType = .numberPad
     }
-
     override func deleteBackward() {
         super.deleteBackward()
-        deleteText?()
+        self.deleteText?()
     }
- 
 }

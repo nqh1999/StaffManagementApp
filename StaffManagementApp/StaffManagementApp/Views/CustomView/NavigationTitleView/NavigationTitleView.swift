@@ -8,26 +8,24 @@
 import UIKit
 
 class NavigationTitleView: UIView {
-
+    // MARK: - Properties
     @IBOutlet private var contentView: UIView!
     @IBOutlet private weak var titleLbl: UILabel!
     var showSideMenu: (()-> Void)?
+    // MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
-        initNavBarView()
+        self.initNavBarView()
     }
-    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        initNavBarView()
+        self.initNavBarView()
     }
-    
-    func initNavBarView() {
+    private func initNavBarView() {
         Bundle.main.loadNibNamed("NavigationTitleView", owner: self, options: nil)
         self.addSubview(contentView)
         self.contentView.frame = self.frame
     }
-    
     func setTitleView(title: String) {
         self.titleLbl.text = title
     }
