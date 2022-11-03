@@ -6,16 +6,14 @@
 //  
 //
 
-import Foundation
 import UIKit
 import Swinject
 
 class ForgotPasswordRouter: PresenterToRouterForgotPasswordProtocol {
-    
     func goToOtpVC(view: PresenterToViewForgotPasswordProtocol, email: String) {
         guard let view = view as? ForgotPasswordVC else {return}
-        let otpVC = Container.shared.resolve(OtpVC.self, argument: email)!
-        view.navigationController?.pushViewController(otpVC, animated: true)
+        let vc = Container.shared.resolve(OtpVC.self, argument: email)!
+        view.navigationController?.pushViewController(vc, animated: true)
     }
     func backToLoginVC(view: PresenterToViewForgotPasswordProtocol) {
         guard let view = view as? ForgotPasswordVC else {return}

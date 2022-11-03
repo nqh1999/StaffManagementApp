@@ -1,8 +1,8 @@
 //
 //  DataSideMenu.swift
-//  SES-IOS
+//  StaffManagementApp
 //
-//  Created by Admin on 18/08/2022.
+//  Created by Nguyen Quang Huy on 01/11/2022.
 //
 
 import Foundation
@@ -19,7 +19,6 @@ class SideMenuData {
         SideMenuModel(imgItem: "group", title: "Staff List"),
         SideMenuModel(imgItem: "logout", title: "Log Out")
     ]
-    
     func getSideMenuData() -> [SideMenuModel] {
         return sideMenuData
     }

@@ -8,29 +8,26 @@
 import UIKit
 
 class SubViewOfProfile: UIView {
-
+    // MARK: - Properties
     @IBOutlet private var contentView: UIView!
     @IBOutlet private weak var titleLbl: UILabel!
     var goToVC: (()->Void)?
-    
     @IBInspectable private var title: String? {
         didSet {
-            titleLbl.text = title
+            self.titleLbl.text = title
         }
     }
-    
     @IBInspectable private var key: String?
-    
+    // MARK: - Init
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        initView()
+        self.initView()
     }
-
     override init(frame: CGRect) {
         super.init(frame: frame)
-        initView()
+        self.initView()
     }
-    func initView() {
+    private func initView() {
         Bundle.main.loadNibNamed("SubViewOfProfile", owner: self, options: nil)
         self.addSubview(contentView)
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapOnView))
@@ -40,11 +37,9 @@ class SubViewOfProfile: UIView {
         self.contentView.layer.borderWidth = 1
         self.contentView.layer.borderColor = UIColor(named: "bgr")?.cgColor
     }
-    
-    @objc func tapOnView() {
-        goToVC?()
+    @objc private func tapOnView() {
+        self.goToVC?()
     }
-    
     func getKey() -> String {
         return key ?? ""
     }

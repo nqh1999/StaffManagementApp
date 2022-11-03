@@ -9,12 +9,11 @@
 import UIKit
 
 final class StaffListVC: BaseVC {
-    
+    // MARK: - Properties
     @IBOutlet private weak var searchTf: UITextField!
     @IBOutlet private weak var tableView: UITableView!
-    
     private var presenter: ViewToPresenterStaffListProtocol?
-    
+    // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setTitle(title: "Staff List")
@@ -26,20 +25,18 @@ final class StaffListVC: BaseVC {
         self.searchTf.layer.borderWidth = 1
         self.searchTf.layer.cornerRadius = 5
     }
-    
-    @IBAction func searchHandler(_ sender: UITextField) {
+    // MARK: - Text Field Action
+    @IBAction private func searchHandler(_ sender: UITextField) {
         if let searchText = sender.text {
             self.presenter?.filterData(text: searchText)
             self.tableView.reloadData()
         }
     }
 }
-
 extension StaffListVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.presenter!.getNumberOfStaffData()
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "StaffListCell", for: indexPath) as! StaffListTableViewCell
         cell.setModel(model: self.presenter!.getStaffDataForIndex(index: indexPath.row))
@@ -49,10 +46,8 @@ extension StaffListVC: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
 }
-
 extension StaffListVC: PresenterToViewStaffListProtocol{
     func setPresenter(presenter: ViewToPresenterStaffListProtocol) {
         self.presenter = presenter
     }
 }
-

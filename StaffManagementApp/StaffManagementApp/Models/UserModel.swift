@@ -7,26 +7,10 @@
 
 import Foundation
 
-class UserModel {
+// MARK: - User Model
+struct UserModel {
     var email: String
     var password: String
-    
-    init(email: String, password: String) {
-        self.email = email
-        self.password = password
-    }
-    
-    func checkUser(email: String, password: String) -> Bool {
-        return (self.email == email && self.password == password)
-    }
-    
-    func checkEmail(email: String) -> Bool {
-        return self.email == email
-    }
-    
-    func resetPassword(newPass: String) {
-        self.password = newPass
-    }
 }
 
 class UserData {
@@ -42,32 +26,25 @@ class UserData {
         UserModel(email: "h@h.com", password: "1"),
         UserModel(email: "j@j.com", password: "1")
     ]
-    
     private var otp: String = "000000"
     private var currentAccount = UserModel(email: "", password: "")
-    
     // MARK: - Getter - Setter
     func getAllUser() -> [UserModel] {
         return self.userData
     }
-    
     func getOtp() -> String {
         return self.otp
     }
-    
     func setCurrentAccount(email: String, password: String) {
         self.currentAccount.email = email
         self.currentAccount.password = password
     }
-    
     func getCurrentAccount() -> UserModel {
         return self.currentAccount
     }
-    
     func setData(data: [UserModel]) {
         self.userData = data
     }
-    
     // MARK: - Processing Methods
     func checkNewPassword(pass: String, reEnterPassword: String) -> String? {
         if pass.isEmpty {
@@ -82,21 +59,19 @@ class UserData {
             return nil
         }
     }
-    
     func validateResult(email: String, password: String) -> String? {
         if email.trimmingCharacters(in: .whitespaces).isEmpty {
             return "Please enter your email"
         } else if password.isEmpty {
             return "Please enter your password"
         } else if userData.contains (where: { user in
-            user.checkUser(email: email, password: password)
+            user.email == email && user.password == password
         }) {
             return nil
         } else {
             return "Login Failed"
         }
     }
-    
     func validateEmail(email: String) -> String? {
         let email = email.trimmingCharacters(in: .whitespaces)
         if email.isEmpty {
@@ -104,23 +79,23 @@ class UserData {
         } else if email.isValidEmail == false {
             return "Invalid email"
         } else if userData.contains (where: { data in
-            data.checkEmail(email: email)
+            data.email == email
         }) {
             return nil
         } else {
             return "Email does not exist"
         }
     }
-    
     func resetPassword(email: String, pass: String) {
-        userData.filter { user in
-            user.checkEmail(email: email)
-        }.forEach { user in
-            user.resetPassword(newPass: pass)
+        for (index, _) in userData.enumerated() {
+            if userData[index].email == email {
+                userData.remove(at: index)
+                userData.append(UserModel(email: email, password: pass))
+            }
         }
     }
 }
-
+// MARK: - Regex Email
 extension String {
     var isValidEmail: Bool {
         let validEmail = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"

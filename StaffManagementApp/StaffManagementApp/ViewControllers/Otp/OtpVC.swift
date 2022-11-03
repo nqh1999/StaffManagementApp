@@ -13,30 +13,26 @@ final class OtpVC: BaseVC {
     @IBOutlet private weak var emailLbl: UILabel!
     @IBOutlet private weak var otpInputView: OtpInputView!
     private var presenter: ViewToPresenterOtpProtocol?
-    
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         self.presenter?.viewDidLoad()
     }
-    @IBAction func checkOtp(_ sender: Any) {
+    // MARK: - Button Action
+    @IBAction private func checkOtp(_ sender: Any) {
         self.presenter?.checkOtp(otp: self.otpInputView.getOTP())
     }
-    
-    @IBAction func resendOtp(_ sender: Any) {
+    @IBAction private func resendOtp(_ sender: Any) {
         self.otpInputView.clearOTP()
     }
 }
-
 extension OtpVC: PresenterToViewOtpProtocol{
     func setPresenter(presenter: ViewToPresenterOtpProtocol) {
         self.presenter = presenter
     }
-    
     func didGetEmail(email: String) {
         self.emailLbl.text = email
     }
-    
     func didGetCheckOtpResult(result: Bool) {
         if result {
             presenter?.goToResetPasswordVC()

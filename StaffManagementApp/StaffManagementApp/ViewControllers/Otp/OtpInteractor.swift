@@ -9,7 +9,6 @@
 import Foundation
 
 class OtpInteractor: PresenterToInteractorOtpProtocol {
-
     // MARK: - Properties
     private weak var presenter: InteractorToPresenterOtpProtocol?
     private var userData = UserData()
@@ -19,15 +18,12 @@ class OtpInteractor: PresenterToInteractorOtpProtocol {
         self.presenter = presenter
         self.email = email
     }
-    
     func initData() {
         self.presenter?.didGetEmail(email: self.email)
     }
-    
     func checkOtp(otp: String) {
         self.presenter?.didGetCheckOtpResult(result: self.userData.getOtp() == otp)
     }
-    
     func getEmail() -> String {
         return email
     }

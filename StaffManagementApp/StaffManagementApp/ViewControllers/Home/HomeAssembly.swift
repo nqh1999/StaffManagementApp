@@ -14,19 +14,16 @@ class HomeAssembly: Assembly {
             let interactor = HomeInteractor(presenter: presenter)
             return interactor
         }
-        
         container.register(PresenterToRouterHomeProtocol.self) { (r) in
             let router = HomeRouter()
             return router
         }
-
         container.register(ViewToPresenterHomeProtocol.self) { (r, view: HomeVC) in
             let presenter = HomePresenter(view: view)
             presenter.setRouter(router: r.resolve(PresenterToRouterHomeProtocol.self)!)
             presenter.setInteractor(interactor: r.resolve(PresenterToInteractorHomeProtocol.self, argument: presenter)!)
             return presenter
         }
-        
         container.register(HomeVC.self) { (r) in
             let vc = HomeVC()
             vc.setPresenter(presenter: r.resolve(ViewToPresenterHomeProtocol.self, argument: vc)!)

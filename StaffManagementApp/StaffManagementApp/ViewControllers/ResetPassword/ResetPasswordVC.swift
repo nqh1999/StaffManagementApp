@@ -15,7 +15,6 @@ final class ResetPasswordVC: BaseVC {
     @IBOutlet private weak var confirmBt: BlueButton!
     @IBOutlet private weak var backToLoginBt: UnderLineButton!
     private var presenter: ViewToPresenterResetPasswordProtocol?
-    
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,21 +26,19 @@ final class ResetPasswordVC: BaseVC {
             self?.resetPassword()
         }
     }
-    
-    @IBAction func confirm(_ sender: Any) {
+    // MARK: - Button Action
+    @IBAction private func confirm(_ sender: Any) {
         self.resetPassword()
     }
-    
-    @IBAction func backToLoginVC(_ sender: Any) {
+    @IBAction private func backToLoginVC(_ sender: Any) {
         self.presenter?.backToLoginVC()
     }
-    
     private func resetPassword() {
         self.view.endEditing(true)
-        self.presenter?.comparePassword(password: passwordTf.text ?? "", reEnterPassword: reEnterPasswordTf.text ?? "")
+        guard let password = self.passwordTf.text, let reEnterPassword = self.reEnterPasswordTf.text else {return}
+        self.presenter?.comparePassword(password: password, reEnterPassword: reEnterPassword)
     }
 }
-
 extension ResetPasswordVC: PresenterToViewResetPasswordProtocol{
     func didGetComparePasswordResult(result: String?) {
         guard let result = result else {
@@ -52,7 +49,6 @@ extension ResetPasswordVC: PresenterToViewResetPasswordProtocol{
         }
         self.showAlert(text: result)
     }
-    
     func setPresenter(presenter: ViewToPresenterResetPasswordProtocol) {
         self.presenter = presenter
     }

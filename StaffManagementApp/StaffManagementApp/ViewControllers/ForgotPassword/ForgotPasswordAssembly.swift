@@ -14,19 +14,16 @@ class ForgotPasswordAssembly: Assembly {
             let interactor = ForgotPasswordInteractor(presenter: presenter)
             return interactor
         }
-        
         container.register(PresenterToRouterForgotPasswordProtocol.self) { (r) in
             let router = ForgotPasswordRouter()
             return router
         }
-
         container.register(ViewToPresenterForgotPasswordProtocol.self) { (r, view: ForgotPasswordVC) in
             let presenter = ForgotPasswordPresenter(view: view)
             presenter.setRouter(router: r.resolve(PresenterToRouterForgotPasswordProtocol.self)!)
             presenter.setInteractor(interactor: r.resolve(PresenterToInteractorForgotPasswordProtocol.self, argument: presenter)!)
             return presenter
         }
-        
         container.register(ForgotPasswordVC.self) { (r) in
             let vc = ForgotPasswordVC()
             vc.setPresenter(presenter: r.resolve(ViewToPresenterForgotPasswordProtocol.self, argument: vc)!)

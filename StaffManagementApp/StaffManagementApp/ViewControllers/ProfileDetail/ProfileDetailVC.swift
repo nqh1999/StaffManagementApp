@@ -9,12 +9,11 @@
 import UIKit
 
 final class ProfileDetailVC: BranchVC {
-
+    // MARK: - Properties
     @IBOutlet private weak var btDownload: UIButton!
     @IBOutlet private var listView: [SubViewOfProfileDetail]!
-    
     private var presenter: ViewToPresenterProfileDetailProtocol?
-    
+    // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setTitle(title: "Profile Detail")
@@ -25,12 +24,11 @@ final class ProfileDetailVC: BranchVC {
             subview.setText(text: self.presenter!.getDetailDataForKey(key: subview.getKey()))
         }
     }
-    
-    @IBAction func btDownloadClicked(_ sender: Any) {
+    // MARK: Button Action
+    @IBAction private func btDownloadClicked(_ sender: Any) {
         print("Download")
     }
 }
-
 extension ProfileDetailVC: PresenterToViewProfileDetailProtocol{
     func setPresenter(presenter: ViewToPresenterProfileDetailProtocol) {
         self.presenter = presenter

@@ -12,21 +12,19 @@ import SideMenu
 
 class LoginRouter: PresenterToRouterLoginProtocol {
     func goToHomeVC(email: String, password: String) {
-        let homeVC = Container.shared.resolve(HomeVC.self)!
-        (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.rootViewController = UINavigationController(rootViewController: homeVC)
+        let vc = Container.shared.resolve(HomeVC.self)!
+        (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.rootViewController = UINavigationController(rootViewController: vc)
         let menu = UISideMenuNavigationController(rootViewController: Container.shared.resolve(SideMenuVC.self, arguments: email, password)!)
         SideMenuManager.default.menuLeftNavigationController = menu
         menu.menuWidth = UIScreen.main.bounds.width * 0.7
     }
-    
     func goToRegisterVC(view: PresenterToViewLoginProtocol) {
         print("Register VC")
     }
-    
     func goToForgotPasswordVC(view: PresenterToViewLoginProtocol) {
         guard let view = view as? LoginVC else {return}
-        let forgotPasswordVC = Container.shared.resolve(ForgotPasswordVC.self)!
-        view.navigationController?.pushViewController(forgotPasswordVC, animated: true)
+        let vc = Container.shared.resolve(ForgotPasswordVC.self)!
+        view.navigationController?.pushViewController(vc, animated: true)
     }
 }
 

@@ -9,7 +9,6 @@
 import Foundation
 
 class ResetPasswordInteractor: PresenterToInteractorResetPasswordProtocol {
-
     // MARK: - Properties
     private weak var presenter: InteractorToPresenterResetPasswordProtocol?
     private var userData = UserData()
@@ -19,7 +18,6 @@ class ResetPasswordInteractor: PresenterToInteractorResetPasswordProtocol {
         self.presenter = presenter
         self.email = email
     }
-    
     func comparePassword(password: String, reEnterPassword: String) {
         let newData = ["email" : self.email, "pass" : password]
         let result = self.userData.checkNewPassword(pass: password, reEnterPassword: reEnterPassword)

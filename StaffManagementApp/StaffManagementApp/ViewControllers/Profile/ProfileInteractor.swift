@@ -9,7 +9,7 @@
 import Foundation
 
 class ProfileInteractor: PresenterToInteractorProfileProtocol {
-
+    // MARK: - Properties
     private weak var presenter: InteractorToPresenterProfileProtocol?
     private var staffData = StaffData()
     private var userData = UserData()
@@ -19,19 +19,15 @@ class ProfileInteractor: PresenterToInteractorProfileProtocol {
         self.staffData.setDetailData(data: data)
         self.staffData.setCurrentAccount(email: acc.email, password: acc.password)
     }
-    
     func getDetailData() -> [String:String] {
         return self.staffData.getDetailData()
     }
-    
     func getCurrentAccount() -> UserModel {
         return self.staffData.getCurrentAccount()
     }
-    
     func saveCurrentAccount(acc: UserModel) {
         self.staffData.setCurrentAccount(email: acc.email, password: acc.password)
     }
-    
     func getDataForKey(key: String) -> String {
         return self.staffData.getDetailData()[key] ?? ""
     }

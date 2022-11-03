@@ -14,19 +14,16 @@ class OtpAssembly: Assembly {
             let interactor = OtpInteractor(presenter: presenter, email: email)
             return interactor
         }
-        
         container.register(PresenterToRouterOtpProtocol.self) { (r) in
             let router = OtpRouter()
             return router
         }
-
         container.register(ViewToPresenterOtpProtocol.self) { (r, view: OtpVC, email: String) in
             let presenter = OtpPresenter(view: view)
             presenter.setRouter(router: r.resolve(PresenterToRouterOtpProtocol.self)!)
             presenter.setInteractor(interactor: r.resolve(PresenterToInteractorOtpProtocol.self, arguments: presenter, email)!)
             return presenter
         }
-        
         container.register(OtpVC.self) { (r, email: String) in
             let vc = OtpVC()
             vc.setPresenter(presenter: r.resolve(ViewToPresenterOtpProtocol.self, arguments: vc, email)!)

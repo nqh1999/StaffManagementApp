@@ -8,10 +8,10 @@
 import UIKit
 
 class BaseTextField: UITextField {
-    
+    // MARK: - Properties
     var didEndEditting: (() -> Void)?
     var shouldReturn: (() -> Void)?
-    
+    // MARK: - Init
     override func awakeFromNib() {
         super.awakeFromNib()
         self.layer.cornerRadius = 5
@@ -20,12 +20,10 @@ class BaseTextField: UITextField {
         self.delegate = self
     }
 }
-
 extension BaseTextField: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         self.didEndEditting?()
     }
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.shouldReturn?()
         return true

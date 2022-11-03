@@ -8,7 +8,6 @@
 import UIKit
 
 class UnderLineButton: UIButton {
-
     @IBInspectable private var titleText: String? {
         didSet {
             self.setTitle(titleText, for: .normal)
@@ -17,7 +16,6 @@ class UnderLineButton: UIButton {
             self.setAttributedTitle(attributedString, for: .normal)
         }
     }
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.layer.cornerRadius = 5

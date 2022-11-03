@@ -9,7 +9,6 @@
 import Foundation
 
 class ForgotPasswordInteractor: PresenterToInteractorForgotPasswordProtocol {
-
     // MARK: - Properties
     private weak var presenter: InteractorToPresenterForgotPasswordProtocol?
     private var userData = UserData()
@@ -17,7 +16,6 @@ class ForgotPasswordInteractor: PresenterToInteractorForgotPasswordProtocol {
     init(presenter: InteractorToPresenterForgotPasswordProtocol) {
         self.presenter = presenter
     }
-    
     func checkEmail(email: String) {
         self.presenter?.didGetCheckEmailResult(result: self.userData.validateEmail(email: email))
     }

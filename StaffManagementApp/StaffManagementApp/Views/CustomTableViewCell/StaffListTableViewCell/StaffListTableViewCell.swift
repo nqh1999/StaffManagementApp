@@ -8,16 +8,15 @@
 import UIKit
 
 class StaffListTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var containerView: UIView!
+    // MARK: - Properties
+    @IBOutlet private weak var containerView: UIView!
     @IBOutlet private weak var avtImgView: UIImageView!
     @IBOutlet private weak var nameLbl: UILabel!
     @IBOutlet private weak var dobLbl: UILabel!
     @IBOutlet private weak var phoneLbl: UILabel!
     @IBOutlet private weak var positionlbl: UILabel!
-    
     var tapToCell: (() -> Void)?
-    
+    // MARK: - Init
     override func awakeFromNib() {
         super.awakeFromNib()
         self.avtImgView.layer.cornerRadius = avtImgView.frame.width/2
@@ -26,11 +25,9 @@ class StaffListTableViewCell: UITableViewCell {
         let tapToView = UITapGestureRecognizer(target: self, action: #selector(tapToView))
         self.containerView.addGestureRecognizer(tapToView)
     }
-
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-    
     func setModel(model: StaffModel) {
         self.avtImgView.image = UIImage(named: model.avtName)
         self.nameLbl.text = model.firstName + " " + model.lastName
@@ -39,6 +36,6 @@ class StaffListTableViewCell: UITableViewCell {
         self.positionlbl.text = model.position
     }
     @objc private func tapToView() {
-        tapToCell?()
+        self.tapToCell?()
     }
 }

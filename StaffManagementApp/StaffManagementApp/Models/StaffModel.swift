@@ -20,6 +20,7 @@ struct StaffModel {
 }
 
 class StaffData  {
+    // MARK: - Data
     private var currentAccount: UserModel?
     private var detailData: [String:String] = [:]
     private var baseData: [StaffModel] = [
@@ -33,47 +34,38 @@ class StaffData  {
         StaffModel(firstName: "Nguyen Thi", lastName: "Chung", dob: "2000/04/20", phone: "0888888888", email: "h@h.com", gender: "Female", address: "Tuyen Quang", position: "Employee", avtName: "user4.jpeg"),
         StaffModel(firstName: "Nguyen Le", lastName: "Thao Nguyen", dob: "1996/04/21", phone: "0999999999", email: "j@j.com", gender: "Female", address: "Tuyen Quang", position: "Employee", avtName: "user2.jpeg")
     ]
-    
+    private var staffData: [StaffModel] = []
+    // MARK: - Getter -  Setter
     init() {
         self.staffData = self.baseData
     }
-    
-    private var staffData: [StaffModel] = []
-    
     func getStaffData() -> [StaffModel] {
         return self.staffData
     }
-    
     func getDetailData() -> [String:String] {
         return detailData
     }
-    
     func setDetailData(data: [String:String]) {
         self.detailData = data
     }
-    
+    func setCurrentAccount(email: String, password: String) {
+        self.currentAccount = UserModel(email: email, password: password)
+    }
+    func getCurrentAccount() -> UserModel {
+        return self.currentAccount ?? UserModel(email: "", password: "")
+    }
+    // MARK: - Processing Methods
     func filterData(text: String) {
         self.staffData = text.isEmpty ? baseData : baseData.filter {
             $0.firstName.lowercased().contains(text.lowercased()) || $0.lastName.lowercased().contains(text.lowercased())
         }
     }
-    
     func mapping(index: Int) {
         self.initDetailData(data: self.staffData[index])
     }
-   
     func initDetailData(data: StaffModel) {
         self.detailData = ["firstName": data.firstName, "lastName": data.lastName, "dob": data.dob, "phone": data.phone, "email": data.email, "gender": data.gender, "address": data.address, "position": data.position, "avtName": data.avtName]
     }
-    
-    func setCurrentAccount(email: String, password: String) {
-        self.currentAccount = UserModel(email: email, password: password)
-    }
-    
-    func getCurrentAccount() -> UserModel {
-        return self.currentAccount ?? UserModel(email: "", password: "")
-    }
-
     func mappingByEmail(email: String) {
         self.staffData.forEach { data in
             if data.email == email {
